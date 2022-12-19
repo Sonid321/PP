@@ -171,6 +171,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Files\png-transparent-blue-arrow-illustration-green-arrow-computer-icons-back-arrow-blue-angle-electric-blue.png" />
+    <Resource Include="Files\ikonka-plyus-3.png" />
+    <Resource Include="Files\depositphotos_7235983-stock-illustration-circle-arrows.jpg" />
     <Content Include="MUD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MUD.edmx</DependentUpon>

@@ -8,11 +8,11 @@
         Title="UPSAPP" Height="683" Width="1221" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,10,10">
         <Button Click="btnBack" Content="Button" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="50" Height="50" BorderBrush="{x:Null}" Foreground="{x:Null}">
-            <!--<Button.Background>
-                <ImageBrush ImageSource="/back.png"/>
-            </Button.Background>-->
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\Grigoriy\Desktop\PP\PP\Files\png-transparent-blue-arrow-illustration-green-arrow-computer-icons-back-arrow-blue-angle-electric-blue.png"/>
+            </Button.Background>
         </Button>
-        <DataGrid x:Name="IBP_List" ItemsSource="{Binding UPSU}" Margin="20,75,270,153" Background="{x:Null}" AutoGenerateColumns="False">
+        <DataGrid x:Name="IBP" ItemsSource="{Binding UPSU}" Margin="20,75,270,153" Background="{x:Null}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Модель ИБП" Binding="{Binding UPSMod.UPSModel}"/>
                 <DataGridTextColumn Width="*" Header="Серийный номер" Binding="{Binding SerialNum}"/>
@@ -22,32 +22,32 @@
         </DataGrid>
         <Label Content="Модель ИБП" HorizontalAlignment="Left" Margin="146,526,0,0" VerticalAlignment="Top"/>
         <Label Content="Серийный номер" HorizontalAlignment="Left" Margin="418,526,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbSerial" HorizontalAlignment="Left" Margin="418,561,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Text="{Binding SelectedItem.SerialNum, ElementName=IBP_List}"/>
+        <TextBox x:Name="SSerial" HorizontalAlignment="Left" Margin="418,561,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Text="{Binding SelectedItem.SerialNum, ElementName=IBP}"/>
         <Label Content="Инвентарный номер" HorizontalAlignment="Left" Margin="671,530,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbInventory" HorizontalAlignment="Left" Margin="671,561,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Text="{Binding SelectedItem.InvNum, ElementName=IBP_List}"/>
+        <TextBox x:Name="SInventory" HorizontalAlignment="Left" Margin="671,561,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Text="{Binding SelectedItem.InvNum, ElementName=IBP}"/>
         <Label Content="Статус" HorizontalAlignment="Left" Margin="918,530,0,0" VerticalAlignment="Top"/>
 
         <Label Content="Фильтрация" HorizontalAlignment="Left" Margin="83,32,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbFilter" SelectionChanged="filterCB" ItemsSource="{Binding Stat.Status}" DisplayMemberPath="StatusName" HorizontalAlignment="Left" Margin="164,34,0,0" VerticalAlignment="Top" Width="160"/>
+        <ComboBox x:Name="SbFilter" SelectionChanged="filterCB" ItemsSource="{Binding Stat.Status}" DisplayMemberPath="Status" HorizontalAlignment="Left" Margin="164,34,0,0" VerticalAlignment="Top" Width="160"/>
         <Label Content="Поиск" HorizontalAlignment="Left" Margin="365,32,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="SearchTB" HorizontalAlignment="Left" Margin="416,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Height="22" TextChanged="SearchTB_TextChanged"/>
-        <Button  Click="btnAdd" Content="Button" HorizontalAlignment="Left" Margin="430,584,0,0" VerticalAlignment="Top" Width="50" Height="50" Foreground="{x:Null}" BorderBrush="{x:Null}">
-            <!--<Button.Background>
-                -->
-            <!--<ImageBrush ImageSource="/plus (1).png"/>-->
-            <!--
-            </Button.Background>-->
+        <Button  Click="btnAdd" Content="Button" HorizontalAlignment="Left" Margin="430,584,0,0" VerticalAlignment="Top" Width="63" Height="54" Foreground="{x:Null}" BorderBrush="{x:Null}">
+            <Button.Background>
+
+                <ImageBrush ImageSource="C:\Users\Grigoriy\Desktop\PP\PP\Files\ikonka-plyus-3.png"/>
+
+            </Button.Background>
         </Button>
-        <Button  Click="btnEdit" Content="Button" HorizontalAlignment="Left" Margin="736,584,0,0" VerticalAlignment="Top" Width="50" Height="50" BorderBrush="{x:Null}" Foreground="{x:Null}">
-            <!--<Button.Background>
-                -->
-            <!--<ImageBrush ImageSource="/edit-info.png"/>-->
-            <!--
-            </Button.Background>-->
+        <Button  Click="btnEdit" Content="Button" HorizontalAlignment="Left" Margin="733,584,0,0" VerticalAlignment="Top" Width="53" Height="63" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+
+                <ImageBrush ImageSource= "C:\Users\Grigoriy\Desktop\PP\PP\Files\depositphotos_7235983-stock-illustration-circle-arrows.jpg"/>
+
+            </Button.Background>
         </Button>
-        <ComboBox x:Name="cbStatus" ItemsSource="{Binding Stat.Status}" DisplayMemberPath="Status" Text="{Binding SelectedItem.Stat.Status, ElementName=IBP_List}" HorizontalAlignment="Left" Margin="918,557,0,0" VerticalAlignment="Top" Width="230"/>
-        <ComboBox x:Name="cbUPS" ItemsSource="{Binding UPSMod.UPSModel}" DisplayMemberPath="UPSModel" Text="{Binding SelectedItem.UPSMod.UPSModel, ElementName=IBP_List}" HorizontalAlignment="Left" Margin="146,557,0,0" VerticalAlignment="Top" Width="230" Cursor="AppStarting"/>
-        <TextBox HorizontalAlignment="Left" Margin="61,561,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" IsReadOnly="True" x:Name="tbID" Text="{Binding SelectedItem.ID, ElementName=IBP_List}"/>
+        <ComboBox x:Name="sStatus" ItemsSource="{Binding Stat.Status}" DisplayMemberPath="Status" Text="{Binding SelectedItem.Stat.Status, ElementName=IBP}" HorizontalAlignment="Left" Margin="918,557,0,0" VerticalAlignment="Top" Width="230"/>
+        <ComboBox x:Name="SUPS" ItemsSource="{Binding UPSMod.UPSModel}" DisplayMemberPath="UPSModel" Text="{Binding SelectedItem.UPSMod.UPSModel, ElementName=IBP}" HorizontalAlignment="Left" Margin="146,557,0,0" VerticalAlignment="Top" Width="230" Cursor="AppStarting"/>
+        <TextBox HorizontalAlignment="Left" Margin="61,561,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" IsReadOnly="True" x:Name="tbID" Text="{Binding SelectedItem.ID, ElementName=IBP}"/>
         <Label Content="ID" HorizontalAlignment="Left" Margin="61,526,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.352,-0.5"/>
         <Image HorizontalAlignment="Left" Height="106" Margin="946,10,0,0" VerticalAlignment="Top" Width="265" Source = "C:\Users\Grigoriy\Desktop\PP\PP\Files\mfc.png" />
 
