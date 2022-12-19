@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PP"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Учет Оборудрования" Height="450" Width="442" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid Margin="0,0,0,360" Background="#FFDA750D">
+            <Label Content="Учёт оборудования" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" FontWeight="Normal" FontStyle="Italic" Width="248" Height="51" Margin="116,0,0,0"/>
+        </Grid>
+        <Grid Height="434" VerticalAlignment="Center" HorizontalAlignment="Left" Width="432">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button  Click="btn_SERVER" Content="Button" HorizontalAlignment="Left" Margin="90,272,0,0" VerticalAlignment="Top" Width="111" Height="88" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="C:\Users\Grigoriy\Desktop\PP\PP\Files\UPS.png" />
+                </Button.Background>
+            </Button>
+            <Button  Click="btn_UPS" Content="Button" HorizontalAlignment="Left" Margin="246,272,0,0" VerticalAlignment="Top" Width="106" Height="88" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="C:\Users\Grigoriy\Desktop\PP\PP\Files\Server.png" />
+                </Button.Background>
+            </Button>
+            <Grid Margin="0,360,-12,0" Background="#FFDA750D">
+                <Label Content="ИБП" HorizontalAlignment="Left" Margin="125,0,0,0" VerticalAlignment="Top"/>
+                <Label Content="Серверное оборудование" HorizontalAlignment="Left" Margin="211,0,0,0" VerticalAlignment="Top"/>
+            </Grid>
+            <Grid Margin="355,0,-12,62" Background="#FFDA750D"/>
+            <Grid Margin="0,0,342,62" Background="#FFDA750D"/>
+            <Image HorizontalAlignment="Left" Height="106" Margin="90,56,0,0" VerticalAlignment="Top" Width="265" Source = "C:\Users\Grigoriy\Desktop\PP\PP\Files\mfc.png" />
+        </Grid>
     </Grid>
 </Window>

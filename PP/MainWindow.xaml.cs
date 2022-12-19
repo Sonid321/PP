@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PP.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,20 @@ namespace PP
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btn_UPS(object sender, RoutedEventArgs e)
+        {
+
+            SERVERAPP sERVERAPP = new SERVERAPP();
+            sERVERAPP.Show();
+            Close();
+        }
+        private void btn_SERVER(object sender, RoutedEventArgs e)
+        {
+            UPSAPP uPSAPP = new UPSAPP();
+            uPSAPP.Show();
+            Close();
         }
     }
 }
