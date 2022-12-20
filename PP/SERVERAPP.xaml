@@ -5,6 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PP.Forms"
         mc:Ignorable="d"
-        Title="SERVERAPP" Height="544" Width="1108" WindowStartupLocation="CenterScreen">
-    <Grid Margin="0,10,10,27"/>
+        Title="SERVERAPP" Height="736" Width="1309" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,10,10,27">
+        <Button Click="btnBack" Content="Button" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="50" Height="50" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\Grigoriy\Desktop\PP\PP\Files\png-transparent-blue-arrow-illustration-green-arrow-computer-icons-back-arrow-blue-angle-electric-blue.png"/>
+            </Button.Background>
+        </Button>
+        <DataGrid x:Name="IBP" ItemsSource="{Binding ServU}" Margin="20,75,384,180" Background="{x:Null}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Модель Сервера " Binding="{Binding ModelSer.ModelServ}"/>
+                <DataGridTextColumn Width="*" Header="Серийный номер" Binding="{Binding SerNum}"/>
+                <DataGridTextColumn Width="*" Header="Инвентарный номер" Binding="{Binding InvNum}"/>
+                <DataGridTextColumn Width="*" Header="Статус работы " Binding="{Binding Stat.Status}"/>
+                <DataGridTextColumn Width="*" Header="Дата поставеки" Binding="{Binding DateState}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDelete" Click="btnDelete_Click" Content="Удалить" Background="#FFFF0000"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Модель ИБП" HorizontalAlignment="Left" Margin="119,524,0,0" VerticalAlignment="Top"/>
+        <Label Content="Серийный номер" HorizontalAlignment="Left" Margin="391,524,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="SSerial" HorizontalAlignment="Left" Margin="391,559,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Text="{Binding SelectedItem.SerialNum, ElementName=IBP}"/>
+        <Label Content="Инвентарный номер" HorizontalAlignment="Left" Margin="644,528,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="SInventory" HorizontalAlignment="Left" Margin="644,559,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Text="{Binding SelectedItem.InvNum, ElementName=IBP}"/>
+        <Label Content="Статус" HorizontalAlignment="Left" Margin="891,528,0,0" VerticalAlignment="Top"/>
+        <Label Content="Поиск" HorizontalAlignment="Left" Margin="365,32,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="SearchTB" HorizontalAlignment="Left" Margin="416,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308" Height="22" TextChanged="SearchTB_TextChanged"/>
+        <Button  Click="btnAdd" Content="Button" HorizontalAlignment="Left" Margin="403,582,0,0" VerticalAlignment="Top" Width="63" Height="54" Foreground="{x:Null}" BorderBrush="{x:Null}">
+            <Button.Background>
+
+                <ImageBrush ImageSource="C:\Users\Grigoriy\Desktop\PP\PP\Files\ikonka-plyus-3.png"/>
+
+            </Button.Background>
+        </Button>
+        <Button  Click="btnEdit" Content="Button" HorizontalAlignment="Left" Margin="706,582,0,0" VerticalAlignment="Top" Width="53" Height="63" BorderBrush="{x:Null}" Foreground="{x:Null}" Cursor="">
+            <Button.Background>
+
+                <ImageBrush ImageSource= "C:\Users\Grigoriy\Desktop\PP\PP\Files\depositphotos_7235983-stock-illustration-circle-arrows.jpg"/>
+
+            </Button.Background>
+        </Button>
+        <ComboBox x:Name="sStatus" ItemsSource="{Binding Stat.Status}" DisplayMemberPath="Status" Text="{Binding SelectedItem.Stat.Status, ElementName=IBP}" HorizontalAlignment="Left" Margin="891,555,0,0" VerticalAlignment="Top" Width="148"/>
+        <ComboBox x:Name="SUPS" ItemsSource="{Binding ModelSer.ModelServ}" DisplayMemberPath="ModelServ" Text="{Binding SelectedItem.ModelSer.ModelServ, ElementName=IBP}" HorizontalAlignment="Left" Margin="119,555,0,0" VerticalAlignment="Top" Width="230" Cursor="AppStarting"/>
+        <TextBox HorizontalAlignment="Left" Margin="34,559,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" IsReadOnly="True" x:Name="tbID" Text="{Binding SelectedItem.ID, ElementName=IBP}"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="34,524,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.352,-0.5"/>
+        <Image HorizontalAlignment="Left" Height="106" Margin="1006,20,0,0" VerticalAlignment="Top" Width="265" Source = "C:\Users\Grigoriy\Desktop\PP\PP\Files\mfc.png" />
+        <DatePicker x:Name="data" HorizontalAlignment="Left" Margin="1120,553,0,0" VerticalAlignment="Top"/>
+        <Label Content="Дата" HorizontalAlignment="Left" Margin="1116,519,0,0" VerticalAlignment="Top"/>
+    </Grid>
 </Window>

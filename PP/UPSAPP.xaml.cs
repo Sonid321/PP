@@ -1,6 +1,8 @@
 ﻿using PP;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +29,6 @@ namespace PP.Forms
             InitializeComponent();
             IBP.ItemsSource = MFC.UPSU.ToList();
             sStatus.ItemsSource = MFC.Stat.ToList();
-            SbFilter.ItemsSource = MFC.Stat.ToList();
             SUPS.ItemsSource = MFC.UPSMod.ToList();
         }
 
@@ -100,14 +101,50 @@ namespace PP.Forms
             sStatus.SelectedValue = -1;
         }
 
-        private void filterCB(object sender, SelectionChangedEventArgs e)
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            MFC = new MFCEntities2();
+            UPSU item = IBP.SelectedItem as UPSU;
+            try
+            {
+                UPSU ser = MFC.UPSU.Where(c => c.ID == item.ID).Single();
+                MFC.UPSU.Remove(ser);
+                MFC.SaveChanges();
 
+                MessageBox.Show("Данные успешно удалены");
+                refreshdatagrid();
+            }
+
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void refreshdatagrid()
+        {
+            MFC = new MFCEntities2();
+            IBP.ItemsSource = MFC.UPSU.ToList();
+            IBP.Items.Refresh();
         }
 
-        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        public void ReadData()
         {
-
+            MFC = new MFCEntities2();
+            IBP.ItemsSource = MFC.UPSU.ToList();
+            Title = $"База данных";
+        }
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        { 
+            var input = (sender as TextBox).Text.ToLower();
+            if (!(String.IsNullOrEmpty(input)))
+            {
+                int resultCount = MFC.UPSU.Count(x => x.Stat.Status.Contains(input));
+                IBP.ItemsSource = MFC.UPSU.Where(x => x.Stat.Status.Contains(input)).ToList();
+                Title = $"База данных | Поиск: {input} | Результатов: {resultCount} из {MFC.UPSU.ToList().Count()}";
+            }
+            else
+                ReadData();
         }
     }
 }

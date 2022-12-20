@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="MFCModel.Stat" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MFCModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MFCModel.UPSMod" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MFCModel.UPSU" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MFCModel.UPSU" Width="1.5" PointX="5.5" PointY="3.125" IsExpanded="true" />
         <AssociationConnector Association="MFCModel.FK_ServU_ModelSer" ManuallyRouted="false" />
         <AssociationConnector Association="MFCModel.FK_ServU_Stat" ManuallyRouted="false" />
         <AssociationConnector Association="MFCModel.FK_UPSU_Stat" ManuallyRouted="false" />
